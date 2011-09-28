@@ -1,0 +1,7 @@
+%p.notice= notice
+
+%p
+	%b Наименование установки:
+	= @installation.title
+= link_to 'Редактировать', edit_installation_path(@installaion)
+= link_to 'Назад', installations_path

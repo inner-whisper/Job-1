@@ -1,0 +1,13 @@
+%h1 Список всех заявок
+=link_to 'Список всех установок', installations_path
+%table
+	%tr
+		%th Категория
+		%th
+		%th
+	- @categories.each do |category|
+		%tr
+			%td= category.title
+			%td= link_to 'Редактировать', edit_category_path(category)
+			%td= link_to 'Удалить', category, :confirm => 'Вы уверены?', :method => :delete
+= link_to 'Новая категория', new_category_path

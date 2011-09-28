@@ -1,0 +1,13 @@
+%h1 Список всех статусов
+=link_to 'Список заказов', orders_path
+%table
+	%tr
+		%th Статус
+		%th
+		%th
+	- @statuses.each do |status|
+		%tr
+			%td= status.title
+			%td= link_to 'Редактировать', edit_status_path(status)
+			%td= link_to 'Удалить', status, :confirm => 'Вы уверены?', :method => :delete
+= link_to 'Новый статус', new_status_path

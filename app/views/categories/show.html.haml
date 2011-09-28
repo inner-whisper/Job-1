@@ -1,0 +1,7 @@
+%p.notice= notice
+
+%p
+	%b Заявка:
+	= @category.title
+= link_to 'Редактировать', edit_category_path(@category)
+= link_to 'Назад', categories_path

@@ -1,0 +1,10 @@
+%p.notice= notice
+
+%p
+	%b Заявка:
+	= @order.title
+%p
+	%b Описание:
+	= @order.description
+= link_to 'Редактировать', edit_order_path(@order)
+= link_to 'Назад', orders_path

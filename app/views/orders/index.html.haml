@@ -1,0 +1,41 @@
+%h1 Список всех заявок
+=link_to 'Список всех установок', installations_path
+%table
+	%tr
+		%th Наименование
+		%th Кол-во
+		%th Установка
+		%th Категория
+		%th Дата отгрузки установки
+		%th Статус
+		-#	
+			%th Ответственный
+		%th Дата добавления
+		%th
+		%th
+	- @orders.each do |order|
+		%tr
+			%td= link_to order.title, order_path(order)
+			%td= order.quantity
+			%td 
+				- if order.installation.nil?
+					= "-"
+				- else
+					= order.installation.title
+			%td
+				- if order.category.nil?
+					= "-"
+				- else
+					= order.category.title
+			%td= order.installation.release_date.to_date
+			%td
+				- if order.status.nil?
+					= "-"
+				- else
+					= order.status.title
+			-#
+				%td= 'user'
+			%td= order.created_at.to_date
+			%td= link_to 'Редактировать', edit_order_path(order)
+			%td= link_to 'Удалить', order, :confirm => 'Вы уверены?', :method => :delete
+= link_to 'Новая заявка', new_order_path

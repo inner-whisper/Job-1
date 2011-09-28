@@ -1,0 +1,22 @@
+%h1 Список всех установок
+%table
+	%tr
+		%th Название установки
+		%th Дата отгрузки
+		%th Описание
+		-#
+			%th Ответственный
+		%th
+		%th
+	- @installations.each do |installation|
+		%tr
+			%td= link_to installation.title, installation_path(installation)
+			%td= installation.release_date.to_date
+			%td= installation.description
+			-#
+				%td= 'user'
+			%td= link_to 'Редактировать', edit_installation_path(installation)
+			%td= link_to 'Удалить', installation, :confirm => 'Вы уверены?', :method => :delete
+= link_to 'Новая установка', new_installation_path
+%br
+	= link_to 'К списку заявок', orders_path

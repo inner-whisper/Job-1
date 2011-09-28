@@ -1,0 +1,8 @@
+= simple_form_for @order do |f|
+	= f.input :title
+	= f.input :quantity
+	= f.input :description
+	= f.association :installation, :include_blank => false
+	= f.association :category, :include_blank => false
+	= f.association :status, :include_blank => false
+	= f.button :submit

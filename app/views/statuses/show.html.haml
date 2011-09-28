@@ -1,0 +1,7 @@
+%p.notice= notice
+
+%p
+	%b Статус:
+	= @status.title
+= link_to 'Редактировать', edit_status_path(@status)
+= link_to 'Назад', statuses_path
