@@ -10,6 +10,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'rake', '0.8.7'
 gem 'simple_form'
+gem 'gravatar_image_tag'
 
 group :development do
   gem 'rspec-rails'
@@ -18,6 +19,7 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'webrat'
+  gem 'factory_girl_rails'
 end
 
 # Use unicorn as the web server
