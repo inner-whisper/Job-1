@@ -1,5 +1,9 @@
 %h1 Список всех заявок
+
+=link_to 'Регистрация', new_user_path
+%br
 =link_to 'Список всех установок', installations_path
+
 %table
 	%tr
 		%th Наименование
@@ -17,22 +21,10 @@
 		%tr
 			%td= link_to order.title, order_path(order)
 			%td= order.quantity
-			%td 
-				- if order.installation.nil?
-					= "-"
-				- else
-					= order.installation.title
-			%td
-				- if order.category.nil?
-					= "-"
-				- else
-					= order.category.title
+			%td= order.installation.nil? ? "-" : (link_to order.installation.title, installation_path(order.installation))
+			%td= order.category.nil? ? "-" : order.category.title
 			%td= order.installation.release_date.to_date
-			%td
-				- if order.status.nil?
-					= "-"
-				- else
-					= order.status.title
+			%td= order.status.nil? ? "-" : order.status.title
 			-#
 				%td= 'user'
 			%td= order.created_at.to_date
