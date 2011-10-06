@@ -4,8 +4,7 @@
 		%th Название установки
 		%th Дата отгрузки
 		%th Описание
-		-#
-			%th Ответственный
+		%th Ответственный
 		%th
 		%th
 	- @installations.each do |installation|
@@ -13,8 +12,7 @@
 			%td= link_to installation.title, installation_path(installation)
 			%td= installation.release_date.to_date
 			%td= installation.description
-			-#
-				%td= 'user'
+			%td= installation.user.nil? ? "-" : installation.user.name
 			%td= link_to 'Редактировать', edit_installation_path(installation)
 			%td= link_to 'Удалить', installation, :confirm => 'Вы уверены?', :method => :delete
 = link_to 'Новая установка', new_installation_path

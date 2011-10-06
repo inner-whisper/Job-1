@@ -6,5 +6,11 @@
 %p
 	%b Описание:
 	= @order.description
+%p	
+	%b Установка:
+	= @order.installation.title
+%p	
+	%b Заказчик:
+	= @order.user.name
 = link_to 'Редактировать', edit_order_path(@order)
 = link_to 'Назад', orders_path

@@ -6,10 +6,16 @@ class OrdersController < ApplicationController
 
 	def new
 		@order = Order.new
-		respond_to do |format|
+
+		if signed_in? 	
+			respond_to do |format|
 			format.html # index.html.erb
 			format.xml { render :xml => @order }
-		end
+			end
+		else
+			redirect_to signin_path
+		end	
+			
 	end
 
 	def edit
@@ -32,6 +38,7 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(params[:order])
+		@order.user = current_user
       
 		respond_to do |format|
 			if @order.save

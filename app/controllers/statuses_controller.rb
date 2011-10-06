@@ -16,7 +16,7 @@ def index
 	end
 
 	def update
-		@status =Sstatus.find(params[:id])
+		@status =Status.find(params[:id])
 
 		respond_to do |format|
 			if @status.update_attributes(params[:status])

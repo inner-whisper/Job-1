@@ -3,6 +3,8 @@
 %p
 	%b Наименование установки:
 	= @installation.title
+	Ответственый:
+	= @installation.user.name
 	Заказы для установки:
 	%ul
 		- @installation.orders.each do |order|

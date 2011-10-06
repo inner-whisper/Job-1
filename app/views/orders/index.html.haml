@@ -9,11 +9,11 @@
 		%th Наименование
 		%th Кол-во
 		%th Установка
+		%th Ответственный
 		%th Категория
 		%th Дата отгрузки установки
 		%th Статус
-		-#	
-			%th Ответственный
+		%th Заказал
 		%th Дата добавления
 		%th
 		%th
@@ -22,11 +22,11 @@
 			%td= link_to order.title, order_path(order)
 			%td= order.quantity
 			%td= order.installation.nil? ? "-" : (link_to order.installation.title, installation_path(order.installation))
+			%td= order.installation.user.nil? ? "-" : (link_to order.installation.user.name, user_path(order.installation.user))
 			%td= order.category.nil? ? "-" : order.category.title
 			%td= order.installation.release_date.to_date
 			%td= order.status.nil? ? "-" : order.status.title
-			-#
-				%td= 'user'
+			%td= order.user.nil? ? "-" : (link_to order.user.name, user_path(order.user))
 			%td= order.created_at.to_date
 			%td= link_to 'Редактировать', edit_order_path(order)
 			%td= link_to 'Удалить', order, :confirm => 'Вы уверены?', :method => :delete

@@ -104,8 +104,8 @@ DEPENDENCIES
   factory_girl_rails
   gravatar_image_tag
   haml
-  rails (= 3.0.10)
-  rake (= 0.8.7)
+  rails
+  rake
   rspec-rails
   simple_form
   sqlite3
